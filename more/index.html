@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Open Graph -->
+    <meta property="og:image" content="https://ciphers.xyz/img/favicon.png">
+    <meta property="og:title" content="Ciphers.xyz - Strong ciphers for Apache, nginx and Lighttpd">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ciphers.xyz/">
+    <!-- Credits -->
+    <meta name="description" content="Ciphers.xyz - Strong ciphers for Apache, nginx and Lighttpd">
+    <!-- Device icons -->
+    <link rel="apple-touch-icon" href="../img/favicon.png" />
+    <link rel="apple-touch-icon-precomposed" href="../img/favicon.png" />
+    <link href="../img/favicon.png" rel="icon" type="image/png" >
+    <title>Ciphers.xyz - Strong Ciphers for Apache, nginx and Lighttpd</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Ciphers.xyz</a>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column" id="other-configs">
+              <li class="nav-item"><a class="nav-link" href="apache.md">Apache</a></li>
+              <li class="nav-item"><a class="nav-link" href="directadmin.md">Direct Admin</a></li>
+              <li class="nav-item"><a class="nav-link" href="dovecot.md">Dovecot</a></li>
+              <li class="nav-item"><a class="nav-link" href="exim.md">Exim</a></li>
+              <li class="nav-item"><a class="nav-link" href="golang.md">Golang</a></li>
+              <li class="nav-item"><a class="nav-link" href="haproxy.md">HAProxy</a></li>
+              <li class="nav-item"><a class="nav-link" href="hitch-tls-proxy.md">Hitch TLS Proxy</a></li>
+              <li class="nav-item"><a class="nav-link" href="lighttpd.md">Lighttpd</a></li>
+              <li class="nav-item"><a class="nav-link" href="mysql.md">MySQL</a></li>
+              <li class="nav-item"><a class="nav-link" href="nginx.md">Nginx</a></li>
+              <li class="nav-item"><a class="nav-link" href="openssh.md">OpenSSH</a></li>
+              <li class="nav-item"><a class="nav-link" href="postfix.md">Postfix</a></li>
+              <li class="nav-item"><a class="nav-link" href="postgresql.md">Postgresql</a></li>
+              <li class="nav-item"><a class="nav-link" href="proftpd.md">ProFTPD</a></li>
+              <li class="nav-item"><a class="nav-link" href="unifi.md">Unifi</a></li>
+              <li class="nav-item"><a class="nav-link" href="zarafa.md">Zarafa</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <div id="config">
+                <h1>More configurations</h1>
+                Select more configurations from the side menu
+            </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.min.js"></script>
+    <script>
+        var _converter
+
+        function show_other_config() {
+          document.getElementById('config').innerHTML = _converter.makeHtml(this.responseText)
+        }
+
+       function load_other_config(event) {
+         event.preventDefault();
+         obj = event
+         var url = event.srcElement.href
+         url = url + ((/\?/).test(url) ? "&" : "?") + (new Date()).getTime()
+
+         /** remove active class from all **/
+         document.querySelectorAll("#other-configs a.nav-link").forEach(function(element) {
+            element.classList.remove('active')
+         })
+         event.srcElement.classList.add('active')
+
+         var req = new XMLHttpRequest();
+         req.addEventListener('load', show_other_config);
+         req.open("GET", url, true);
+	     req.send();
+       }
+
+       document.addEventListener('DOMContentLoaded', function() {
+         var nav_links = document.querySelectorAll("#other-configs a.nav-link")
+         _converter = new showdown.Converter()
+
+         for (i = 0; i < nav_links.length; i++) {
+           nav_links[i].addEventListener("click", load_other_config)
+         }
+         console.log("Page loaded")
+       });
+     </script>
+
+<!-- Matomo -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(["setDomains", ["*.ciphers.xyz/ https://www.ciphers.xyz"]]);
+  _paq.push(["disableCookies"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//stats.hostingcoach.nl/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '2']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//stats.hostingcoach.nl/piwik.php?idsite=2&rec=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Matomo Code -->
+
+  </body>
+</html>

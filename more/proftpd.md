@@ -1,0 +1,10 @@
+# ProFTPD
+```
+TLSEngine on
+TLSLog /var/ftpd/tls.log
+TLSProtocol TLSv1.2
+TLSRequired on
+TLSCipherSuite AES128+EECDH:AES128+EDH
+TLSRSACertificateFile /etc/proftpd.cert
+TLSRSACertificateKeyFile /etc/proftpd.key
+```
