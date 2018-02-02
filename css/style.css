@@ -8,9 +8,6 @@
   word-wrap: break-word;       /* Internet Explorer 5.5+ */
   overflow: visible;
 }
-body {
-  background: url(../img/lock-trans.png) 10% center fixed no-repeat !important;
-}
 pre.config {
 white-space: pre-wrap;
 font-size: 0.8em;
