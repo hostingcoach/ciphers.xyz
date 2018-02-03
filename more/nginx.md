@@ -1,4 +1,5 @@
 # Nginx
+[Rationale and tutorial on Strong SSL Security on nginx](https://raymii.org/s/tutorials/Strong_SSL_Security_On_nginx.html)
 ```
 ssl_protocols TLSv1.3;# Requires nginx >= 1.13.0 else use TLSv1.2
 ssl_prefer_server_ciphers on;

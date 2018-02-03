@@ -1,4 +1,5 @@
 # Lighttpd
+[Rationale and tutorial on Strong SSL Security on Lighttpd](https://raymii.org/s/tutorials/Strong_SSL_Security_On_lighttpd.html)
 ```
 ssl.honor-cipher-order = "enable"
 ssl.cipher-list = "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH"
