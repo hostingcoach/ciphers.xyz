@@ -70,14 +70,14 @@
        function load_other_config(event) {
          event.preventDefault();
          obj = event
-         var url = event.srcElement.href
+         var url = event.target.href
          url = url + ((/\?/).test(url) ? "&" : "?") + (new Date()).getTime()
 
          /** remove active class from all **/
          document.querySelectorAll("#other-configs a.nav-link").forEach(function(element) {
             element.classList.remove('active')
          })
-         event.srcElement.classList.add('active')
+         event.target.classList.add('active')
 
          var req = new XMLHttpRequest();
          req.addEventListener('load', show_other_config);
